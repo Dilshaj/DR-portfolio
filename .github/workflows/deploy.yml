@@ -1,9 +1,9 @@
-  name: Deploy Portfolio Website
+name: Deploy Portfolio Website
 
 on:
   push:
     branches:
-      - main   
+      - main
 
 permissions:
   contents: read
@@ -20,10 +20,10 @@ jobs:
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload site files
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."   
+          path: .
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
