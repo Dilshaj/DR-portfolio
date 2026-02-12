@@ -52,42 +52,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // SERVICES SECTION (Extreme Panorama Slider)
+    // EXPO SLIDER STYLE FOR SERVICES (Swiper.js)
     if (document.querySelector('.services-swiper')) {
         new Swiper('.services-swiper', {
+            speed: 1000,
+            parallax: true,
             loop: true,
-            speed: 1200,
-            centeredSlides: true,
-            slidesPerView: 'auto', // Dynamic width for panoramic spread
             grabCursor: true,
-            effect: 'creative',
-            creativeEffect: {
-                limitProgress: 3,
-                perspective: true,
-                prev: {
-                    translate: ['-100%', 0, -1000],
-                    rotate: [0, 80, 0],
-                },
-                next: {
-                    translate: ['100%', 0, -1000],
-                    rotate: [0, -80, 0],
-                },
-            },
+            centeredSlides: true,
             autoplay: {
-                delay: 5000,
+                delay: 4500,
                 disableOnInteraction: false,
             },
             pagination: {
-                el: '.pano-pagination',
+                el: '.expo-pagination',
                 clickable: true,
             },
-            mousewheel: {
-                forceToAxis: true,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 'auto',
-                }
+            navigation: {
+                nextEl: '.expo-next',
+                prevEl: '.expo-prev',
             }
         });
     }

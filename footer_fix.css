@@ -109,22 +109,26 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    footer {
+        padding: 60px 0 40px !important;
+    }
+
     .footer-container {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
     }
 
     .social-links {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .footer-bottom {
         flex-direction: column;
+        text-align: left;
         gap: 20px;
-        text-align: center;
     }
 
     .legal-links {
-        justify-content: center;
+        justify-content: flex-start;
     }
 }

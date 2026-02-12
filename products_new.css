@@ -1,0 +1,125 @@
+.products-page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 30px 0;
+}
+
+@media (max-width: 768px) {
+    .products-page-grid {
+        padding: 20px 0;
+        gap: 20px;
+    }
+}
+
+.product-new-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-new-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-image {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.product-new-card:hover .product-card-image img {
+    transform: scale(1.1);
+}
+
+.product-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0) 0%, rgba(30, 41, 59, 0.8) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+}
+
+.product-new-card:hover .product-card-overlay {
+    opacity: 1;
+}
+
+.product-card-info {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(74, 144, 226, 0.1);
+    color: #4A90E2;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+.product-new-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.product-new-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.product-view-btn {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1e293b;
+    font-weight: 700;
+    text-decoration: none;
+    transition: gap 0.3s ease;
+}
+
+.product-view-btn i {
+    color: #FF6B81;
+}
+
+.product-new-card:hover .product-view-btn {
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .products-page-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="footer_fix.css">
     <link rel="stylesheet" href="contact_section.css">
+    <link rel="stylesheet" href="products_new.css">
     <style>
         .page-header {
             padding-top: 150px;
@@ -65,7 +66,7 @@
 
     <div class="page-header">
         <div class="container">
-            <h1 style="font-size: 3rem; font-weight: 800; color: #1e293b;">Our Products</h1>
+            <h1 style="font-size: 3rem; font-weight: 800; color: #1e293b;">Our Product Ecosystem</h1>
         </div>
     </div>
 
@@ -80,43 +81,102 @@
                 <h2>Innovation, Quality, and Real-World Impact</h2>
             </div>
 
-            <!-- Expo Slider (Swiper) -->
-            <div class="swiper products-swiper" data-aos="fade-up">
-                <div class="swiper-wrapper">
-                    <!-- Slide 1: EduProva -->
-                    <div class="swiper-slide">
-                        <div class="slide-bg" data-swiper-parallax="50%"
-                            style="background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80');">
-                        </div>
-                        <div class="slide-content">
-                            <div class="slide-tag" data-swiper-parallax="-100">AI Learning</div>
-                            <h3 class="slide-title" data-swiper-parallax="-200">EduProva</h3>
-                            <p class="slide-description" data-swiper-parallax="-300">Advanced technology platform
-                                designed to solve challenges and drive growth through AI-powered education.</p>
-                            <a href="#" class="slide-btn" data-swiper-parallax="-400">View Project <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
+            <div class="products-page-grid" data-aos="fade-up">
+                <!-- Product 1: EduProva -->
+                <div class="product-new-card">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80"
+                            alt="EduProva">
+                        <div class="product-card-overlay"></div>
                     </div>
-                    <!-- Slide 2: Doctor On Click -->
-                    <div class="swiper-slide">
-                        <div class="slide-bg" data-swiper-parallax="50%"
-                            style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80');">
-                        </div>
-                        <div class="slide-content">
-                            <div class="slide-tag" data-swiper-parallax="-100">Healthcare</div>
-                            <h3 class="slide-title" data-swiper-parallax="-200">Doctor On Click</h3>
-                            <p class="slide-description" data-swiper-parallax="-300">Seamless video consultations and
-                                appointment bookings connecting patients with specialists instantly.</p>
-                            <a href="#" class="slide-btn" data-swiper-parallax="-400">View Project <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
+                    <div class="product-card-info">
+                        <span class="product-tag">AI Learning</span>
+                        <h3>EduProva</h3>
+                        <p>An advanced technology platform designed to solve educational challenges through AI-powered
+                            testing and assessments.</p>
+                        <a href="#" class="product-view-btn">Explore Product <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Navigation -->
-                <div class="swiper-button-next expo-next"></div>
-                <div class="swiper-button-prev expo-prev"></div>
-                <!-- Pagination -->
-                <div class="swiper-pagination expo-pagination"></div>
+
+                <!-- Product 2: Doctor On Click -->
+                <div class="product-new-card">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                            alt="Doctor On Click">
+                        <div class="product-card-overlay"></div>
+                    </div>
+                    <div class="product-card-info">
+                        <span class="product-tag">Healthcare</span>
+                        <h3>Doctor On Click</h3>
+                        <p>Seamless healthcare connecting patients with specialists instantly through high-quality video
+                            consultations.</p>
+                        <a href="#" class="product-view-btn">Explore Product <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Product 3: Digital News Channel -->
+                <div class="product-new-card">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1495020689067-958a51047682?auto=format&fit=crop&w=800&q=80"
+                            alt="Digital News Channel">
+                        <div class="product-card-overlay"></div>
+                    </div>
+                    <div class="product-card-info">
+                        <span class="product-tag">Media & Tech</span>
+                        <h3>Digital News Channel</h3>
+                        <p>Next-generation news delivery platform with real-time updates and interactive multimedia
+                            storytelling.</p>
+                        <a href="#" class="product-view-btn">Explore Product <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Product 4: Moon Food Delivery -->
+                <div class="product-new-card">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1526367790999-0150786486a9?auto=format&fit=crop&w=800&q=80"
+                            alt="Moon Food Delivery">
+                        <div class="product-card-overlay"></div>
+                    </div>
+                    <div class="product-card-info">
+                        <span class="product-tag">Logistics</span>
+                        <h3>Moon Food Delivery</h3>
+                        <p>Smart hyper-local logistics solution optimizing food delivery routes and ensuring
+                            lightning-fast service.</p>
+                        <a href="#" class="product-view-btn">Explore Product <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Product 5: AI Based LLMs -->
+                <div class="product-new-card">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
+                            alt="AI Based LLMs">
+                        <div class="product-card-overlay"></div>
+                    </div>
+                    <div class="product-card-info">
+                        <span class="product-tag">Core AI</span>
+                        <h3>AI Based LLMs</h3>
+                        <p>Custom-trained Large Language Models tailored for enterprise security, privacy, and
+                            industry-specific intelligence.</p>
+                        <a href="#" class="product-view-btn">Explore Product <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Product 6: Communication App -->
+                <div class="product-new-card">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e51ffb?auto=format&fit=crop&w=800&q=80"
+                            alt="Communication App">
+                        <div class="product-card-overlay"></div>
+                    </div>
+                    <div class="product-card-info">
+                        <span class="product-tag">Enterprise</span>
+                        <h3>SecureCom App</h3>
+                        <p>End-to-end encrypted communication platform for teams that demand absolute data sovereignty.
+                        </p>
+                        <a href="#" class="product-view-btn">Explore Product <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -28,21 +28,29 @@
 .giant-text {
     font-size: clamp(3rem, 11vw, 10rem);
     font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.03em;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     color: #000;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    /* responsive wrap */
-    gap: 2px;
+    gap: 15px;
+    /* Word gap */
 }
 
 .giant-text .spacer {
-    width: 30px;
+    display: none;
+    /* using gap now */
 }
 
-.giant-text span {
+.giant-word {
+    display: inline-flex;
+    gap: 4px;
+    /* Letter gap */
+    position: relative;
+}
+
+.giant-text span.letter {
     position: relative;
     display: inline-block;
 }
@@ -50,7 +58,7 @@
 /* Avatars floating on text */
 .has-avatar {
     position: relative;
-    z-index: 10;
+    z-index: 100;
 }
 
 .avatar-pop {
@@ -59,10 +67,8 @@
     flex-direction: column;
     align-items: center;
     width: max-content;
-    z-index: 20;
+    z-index: 200;
     pointer-events: none;
-    /* Let text be clickable if needed */
-
 }
 
 .avatar-pop img {
@@ -93,33 +99,79 @@
 }
 
 /* Positioning the avatars relative to letters */
-.top-right {
-    bottom: 70%;
-    left: 60%;
+.pop-top-left {
+    bottom: 90%;
+    left: -20%;
 }
 
-.top-left {
-    bottom: 80%;
-    right: 50%;
-}
-
-.bottom-right {
-    top: 70%;
+.pop-top {
+    bottom: 100%;
     left: 50%;
+    transform: translateX(-50%);
 }
 
-.bottom-left {
-    top: 60%;
-    right: 50%;
+.pop-top-right {
+    bottom: 90%;
+    right: -20%;
+}
+
+.pop-bottom-left {
+    top: 90%;
+    left: -20%;
+}
+
+.pop-bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pop-bottom-right {
+    top: 90%;
+    right: -20%;
+}
+
+.indicator {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    margin-bottom: -2px;
+    z-index: 5;
+}
+
+.pop-top-left .indicator,
+.pop-top .indicator,
+.pop-top-right .indicator {
+    border-top: 8px solid #a3e635;
+    /* Lime green like reference */
+    order: 2;
+    /* below image */
+    margin-top: -2px;
+}
+
+.pop-bottom-left .indicator,
+.pop-bottom .indicator,
+.pop-bottom-right .indicator {
+    border-bottom: 8px solid #a3e635;
+    order: 1;
+    /* above image */
+    margin-bottom: -2px;
+}
+
+.avatar-pop .indicator {
+    display: block;
 }
 
 /* Hero Bottom Grid */
 .hero-bottom-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
     position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .hero-left h2 {
@@ -176,61 +228,81 @@
     margin-top: 3px;
 }
 
-.btn-lg {
-    padding: 15px 40px;
+.btn-lg,
+.btn-lg-themed {
+    padding: 18px 45px;
     font-size: 1.1rem;
-    border-radius: 8px;
-    /* Slightly less rounded than pill */
+    border-radius: 100px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: var(--gradient-1);
-    /* Cyan to Pink */
+    gap: 15px;
+    background: linear-gradient(90deg, #00d2ff, #f06);
     color: white;
     font-weight: 700;
     border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(255, 0, 102, 0.3);
+    text-decoration: none;
 }
 
-.btn-lg:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 58, 133, 0.4);
+.btn-lg:hover,
+.btn-lg-themed:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 0, 102, 0.4);
 }
 
-.btn-lg i {
-    background: #fff;
-    color: var(--primary-color);
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
+.btn-lg i,
+.btn-lg-themed i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-lg-themed:hover i {
+    transform: translateX(5px);
 }
 
 /* Responsive Adjustments for New Hero */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
     .giant-text {
-        font-size: 5rem;
+        font-size: clamp(3.2rem, 10vw, 7rem);
+        gap: 10px;
+        line-height: 1.1;
+    }
+
+    .hero-branding {
+        margin-bottom: 60px;
     }
 
     .hero-bottom-grid {
         grid-template-columns: 1fr;
-        text-align: left;
+        text-align: center;
+        gap: 30px;
     }
 
     .hero-right {
         border-left: none;
         padding-left: 0;
-        border-top: 1px solid #e2e8f0;
-        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-features {
+        display: inline-block;
+        text-align: left;
+        margin: 0 auto 35px;
+        padding-left: 0;
+    }
+
+    .hero-left h2 {
+        font-size: clamp(2.2rem, 6vw, 3.2rem);
+        margin-bottom: 10px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .giant-text {
-        font-size: 3.5rem;
+        font-size: clamp(2.5rem, 8vw, 4rem);
     }
 
     .role-label {
@@ -239,11 +311,11 @@
     }
 
     .avatar-pop img {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
     }
 
     .hero-left h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 }

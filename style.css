@@ -262,7 +262,7 @@ p {
     border-radius: 3px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
     .menu-toggle {
         display: flex;
     }
@@ -957,24 +957,24 @@ p {
 /*   SERVICE CAROUSEL (Full Screen Pano)     */
 /* ========================================= */
 .services {
-    min-height: 100vh;
-    padding: 80px 0;
+    padding: 100px 0;
     background: #ffffff;
     overflow: hidden;
     position: relative;
-    perspective: 2000px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     color: #1a1a1b;
 }
 
 .services .section-header {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .services .section-header h2 {
     color: #1a1a1b;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .services .subtitle {
@@ -982,25 +982,23 @@ p {
 }
 
 .services-swiper {
-    width: 100%;
-    max-width: 100%;
-    /* Occupy full screen width */
-    height: 70vh;
-    /* Large height for immersion */
+    width: 85%;
+    max-width: 1400px;
+    height: 650px;
     margin: 40px auto;
-    overflow: visible;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
 }
 
 .services-swiper .swiper-slide {
-    width: 600px;
-    /* Even larger for full screen feel */
+    width: 100%;
     height: 100%;
-    border-radius: 30px;
     overflow: hidden;
-    background: #ffffff;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease;
-    backface-visibility: hidden;
+}
+
+.swiper-slide-active {
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15) !important;
 }
 
 .service-v2-card {
@@ -1032,11 +1030,14 @@ p {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 50px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+    padding: 40px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
     z-index: 2;
     color: white;
-    /* Content stays white for readability on image */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 50%;
 }
 
 .service-content h3 {
@@ -1078,9 +1079,16 @@ p {
     transform: scale(1.05);
 }
 
-/* Pagination for Light Theme */
 .pano-pagination {
-    bottom: -50px !important;
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    justify-content: center;
+    gap: 8px;
+    width: auto !important;
+    z-index: 10;
 }
 
 .pano-pagination .swiper-pagination-bullet {
@@ -1094,6 +1102,14 @@ p {
 .pano-pagination .swiper-pagination-bullet-active {
     background: #000000 !important;
     transform: scale(1.5);
+}
+
+.services-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 60px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1142,19 +1158,30 @@ p {
     overflow: hidden;
 }
 
-.products-section .section-header h2 {
-    color: #1a1a1b;
+.product-header-container,
+.tech-header-container {
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-.products-section .section-header p {
-    color: #64748b;
+.products-section .section-header h2 {
+    color: #1a1a1b;
+    max-width: 900px;
+    margin: 0 auto 20px;
+}
+
+.full-width-expo,
+.full-width-tech {
+    width: 100%;
+    position: relative;
 }
 
 .products-swiper {
-    width: 100%;
-    height: 600px;
-    margin-top: 50px;
-    border-radius: 40px;
+    width: 85%;
+    max-width: 1400px;
+    height: 650px;
+    margin: 40px auto;
+    border-radius: 30px;
 }
 
 .swiper-slide {
@@ -1357,12 +1384,12 @@ p {
     }
 
     .footer-col {
-        text-align: center;
+        text-align: left;
     }
 
     .newsletter-form {
-        max-width: 300px;
-        margin: 15px auto 0;
+        max-width: 350px;
+        margin: 15px 0 0;
     }
 }
 
@@ -1401,24 +1428,20 @@ p {
 .subtitle-text {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #a855f7;
+    color: #ec4899;
     text-transform: capitalize;
 }
 
 .social-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
     color: #1e293b;
     margin-bottom: 30px;
-    display: inline-block;
-    position: relative;
-    padding: 10px 20px;
-    border: 3px solid #a855f7;
-    background: linear-gradient(90deg, #a855f7, #ec4899);
+    background: linear-gradient(90deg, #3b82f6, #ec4899);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    border-image: linear-gradient(45deg, #a855f7, #ec4899) 1;
+    line-height: 1.2;
 }
 
 .social-desc {
@@ -1431,14 +1454,24 @@ p {
 
 .social-stats {
     display: flex;
-    gap: 40px;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
 }
 
 .stat-item h3 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    color: #a855f7;
     margin-bottom: 5px;
+    color: #818cf8;
 }
 
 .stat-item p {
@@ -1464,19 +1497,19 @@ p {
 
 .social-card {
     position: relative;
-    border-radius: 30px;
+    border-radius: 40px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 .large-card {
     flex: 1;
-    height: 400px;
+    height: 480px;
 }
 
 .small-card {
     flex: 1;
-    height: 180px;
+    height: 220px;
 }
 
 .social-card img {
@@ -1496,8 +1529,8 @@ p {
     left: 0;
     width: 100%;
     padding: 30px;
-    background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
-    color: #000000;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    color: #ffffff;
 }
 
 .card-accent {
@@ -1518,16 +1551,16 @@ p {
 
 .card-overlay h4 {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 5px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .card-overlay p {
     font-size: 0.95rem;
-    color: #000000;
-    font-weight: 600;
-    opacity: 1;
+    color: #ffffff;
+    font-weight: 500;
+    opacity: 0.95;
 }
 
 .grid-sub-row {
@@ -1717,9 +1750,9 @@ p {
     display: flex;
     align-items: center;
     gap: 30px;
-    margin-top: 50px;
+    margin-top: 20px;
     position: relative;
-    padding: 0 40px;
+    padding: 0 5%;
 }
 
 .tech-track-wrapper {
@@ -1734,8 +1767,8 @@ p {
 }
 
 .tech-card {
-    flex: 0 0 calc(25% - 22.5px);
-    /* 4 cards visible */
+    flex: 0 0 280px;
+    /* Fixed width for better control in full-width scroll */
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 20px;
@@ -1880,14 +1913,32 @@ body {
 
 /* 2. Tablet (Max 1024px) */
 @media screen and (max-width: 1024px) {
+    section {
+        padding: 50px 0 !important;
+    }
+
+    .hero {
+        padding-top: 140px !important;
+        padding-bottom: 50px !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    .hero-branding {
+        margin-bottom: 50px !important;
+        padding: 0 !important;
+    }
+
     .giant-text {
         font-size: clamp(3rem, 12vw, 8rem);
+        padding: 20px 0 !important;
     }
 
     .hero-bottom-grid {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 30px;
         text-align: center;
+        margin-top: 40px !important;
     }
 
     .hero-right {
@@ -1896,8 +1947,136 @@ body {
 
     .about-container {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 40px;
+        text-align: left;
+        /* Changed from center */
+    }
+
+    .left-col {
+        padding-top: 0;
+        /* Remove top padding to align parallel with right col */
+    }
+
+    .about-visual {
+        flex-direction: row;
+        /* Ensure side-by-side */
+        align-items: flex-start;
+        /* Align to top */
+        gap: 20px;
+    }
+
+    .about-col {
+        flex: 1;
+        /* Equal width columns */
+    }
+
+    .info-card {
+        align-items: center;
         text-align: center;
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        text-align: left;
+        padding-bottom: 40px;
+        /* Add bottom padding */
+    }
+
+    .about-content>.subtitle-wrap,
+    .about-content>h2,
+    .about-content>p {
+        grid-column: 1 / -1;
+    }
+
+    .about-features {
+        grid-column: 1;
+        margin: 0;
+        padding-left: 0;
+    }
+
+    .stats-btn-wrapper {
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+        /* Stack stats and button */
+        align-items: flex-end;
+        /* Align right */
+        justify-content: flex-start;
+        gap: 20px;
+        margin-top: 0;
+    }
+
+    .about-stats {
+        display: flex;
+        gap: 40px;
+        justify-content: flex-end;
+        margin: 0;
+    }
+
+    .btn-learn-more {
+        margin: 0;
+        /* Let flex gap handle spacing */
+        display: inline-flex;
+    }
+
+    .section-header h2 {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        line-height: 1.3;
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-wrap: break-word;
+    }
+
+    .services-swiper,
+    .products-swiper {
+        width: 100%;
+        margin: 30px auto !important;
+        overflow: hidden !important;
+        height: 600px !important;
+        border-radius: 20px;
+    }
+
+    .services-swiper .swiper-slide,
+    .products-swiper .swiper-slide {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .tech-slider-container {
+        margin-top: 20px !important;
+    }
+
+    .product-header-container,
+    .tech-header-container {
+        margin-bottom: 25px !important;
+    }
+
+    .career-section .section-header {
+        margin-bottom: 40px !important;
+    }
+
+    .container-social {
+        gap: 50px !important;
+    }
+
+    .social-subtitle {
+        margin-bottom: 25px !important;
+    }
+
+    .social-title {
+        margin-bottom: 30px !important;
+    }
+
+    .services-btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px !important;
     }
 
     .job-grid {
@@ -1908,16 +2087,44 @@ body {
 /* 3. Mobile (Max 768px) */
 @media screen and (max-width: 768px) {
     section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
 
     .section-header {
+        margin-bottom: 30px;
         text-align: center;
-        margin-bottom: 40px;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        /* Center align text */
+    }
+
+    .stats-btn-wrapper {
+        align-items: center;
+        /* Center align items */
+        margin-top: 10px;
+    }
+
+    .about-stats {
+        justify-content: center;
+        /* Center align stats */
+        margin-left: 0;
+    }
+
+    .stat-item h3 {
+        font-size: 1.8rem;
+    }
+
+    .job-card {
+        padding: 25px;
     }
 
     .giant-text {
-        font-size: 3.5rem;
+        font-size: 3rem;
         padding: 20px 0;
     }
 
@@ -1948,28 +2155,14 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .services-swiper {
-        height: 500px;
-    }
-
-    .services-swiper .swiper-slide {
-        width: 320px !important;
-    }
-
-    .service-content {
-        padding: 30px;
-    }
-
-    .service-content h3 {
-        font-size: 1.5rem;
-    }
-
-    .products-section {
-        padding: 60px 0;
-    }
-
+    .services-swiper,
     .products-swiper {
-        height: 450px;
+        height: 450px !important;
+    }
+
+    .services-swiper .swiper-slide,
+    .products-swiper .swiper-slide {
+        width: 100% !important;
     }
 
     .slide-content {
@@ -1987,16 +2180,16 @@ body {
 
     .footer-container {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
     }
 
     .social-links {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .footer-bottom {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
         gap: 20px;
     }
 }
@@ -2012,7 +2205,7 @@ body {
     }
 
     .services-swiper .swiper-slide {
-        width: 280px !important;
+        width: 100% !important;
     }
 
     .tech-card {
