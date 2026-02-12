@@ -1,0 +1,81 @@
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 60px 0;
+    background: #fff;
+}
+
+.marquee-track {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+}
+
+/* Pause on Hover */
+.marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.tech-item {
+    flex: 0 0 auto;
+    width: 200px;
+    margin: 0 20px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Base Tech Card overrides for marquee */
+.marquee-container .tech-card {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.marquee-container .tech-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.marquee-container .tech-icon-circle {
+    width: 70px;
+    height: 70px;
+    background: #f8fafc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.marquee-container .tech-icon-circle img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.marquee-container h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}

@@ -52,128 +52,128 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // PREMIUM 3D SERVICES CAROUSEL (Auto + Manual)
-    const sliderContainer = document.querySelector('.services-slider');
-    const servicePrevBtn = document.querySelector('.services-wrapper .prev-btn');
-    const serviceNextBtn = document.querySelector('.services-wrapper .next-btn');
-
-    if (sliderContainer && serviceNextBtn && servicePrevBtn) {
-        let currAngle = 0;
-        const theta = 45; // 360 / 8 cards
-        let autoRotateTimer;
-
-        const rotateCarousel = () => {
-            sliderContainer.style.transform = `rotateY(${currAngle}deg)`;
-        };
-
-        const startAutoRotate = () => {
-            clearInterval(autoRotateTimer);
-            autoRotateTimer = setInterval(() => {
-                currAngle -= theta;
-                rotateCarousel();
-            }, 4000); // Rotate every 4 seconds
-        };
-
-        const resetAutoRotate = () => {
-            clearInterval(autoRotateTimer);
-            startAutoRotate();
-        };
-
-        serviceNextBtn.addEventListener('click', () => {
-            currAngle -= theta;
-            rotateCarousel();
-            resetAutoRotate();
-        });
-
-        servicePrevBtn.addEventListener('click', () => {
-            currAngle += theta;
-            rotateCarousel();
-            resetAutoRotate();
-        });
-
-        // Pause on Hover
-        sliderContainer.parentElement.addEventListener('mouseenter', () => clearInterval(autoRotateTimer));
-        sliderContainer.parentElement.addEventListener('mouseleave', startAutoRotate);
-
-        // Init
-        startAutoRotate();
-    }
-
-    // PREMIUM PRODUCTS INFINITE SLIDER (Auto + Manual)
-    const prodTrack = document.querySelector('.products-track');
-    const prodContainer = document.querySelector('.products-slider-container');
-    const prodNextBtn = document.querySelector('.prod-next');
-    const prodPrevBtn = document.querySelector('.prod-prev');
-    const prodProgressBar = document.querySelector('.progress-fill');
-    const prodCards = document.querySelectorAll('.product-card');
-
-    if (prodTrack && prodCards.length > 0) {
-        let prodIndex = 0;
-        const cardWidth = 320;
-        const gap = 30;
-        const stride = cardWidth + gap;
-        const totalCards = prodCards.length;
-
-        const updateSlider = () => {
-            // Responsive Calculation
-            const containerWidth = prodContainer.offsetWidth;
-            const visibleCards = Math.floor(containerWidth / stride) || 1;
-            const maxIndex = totalCards - visibleCards;
-
-            // Loop Logic
-            if (prodIndex > maxIndex) prodIndex = 0;
-            if (prodIndex < 0) prodIndex = maxIndex;
-
-            const translateX = -(prodIndex * stride);
-            prodTrack.style.transform = `translateX(${translateX}px)`;
-
-            // Progress Bar
-            const progress = ((prodIndex + 1) / (maxIndex + 1)) * 100;
-            if (prodProgressBar) {
-                prodProgressBar.style.width = `${Math.min(100, progress)}%`;
+    // SERVICES SECTION (Extreme Panorama Slider)
+    if (document.querySelector('.services-swiper')) {
+        new Swiper('.services-swiper', {
+            loop: true,
+            speed: 1200,
+            centeredSlides: true,
+            slidesPerView: 'auto', // Dynamic width for panoramic spread
+            grabCursor: true,
+            effect: 'creative',
+            creativeEffect: {
+                limitProgress: 3,
+                perspective: true,
+                prev: {
+                    translate: ['-100%', 0, -1000],
+                    rotate: [0, 80, 0],
+                },
+                next: {
+                    translate: ['100%', 0, -1000],
+                    rotate: [0, -80, 0],
+                },
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.pano-pagination',
+                clickable: true,
+            },
+            mousewheel: {
+                forceToAxis: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 'auto',
+                }
             }
-        };
-
-        let autoSlideInterval;
-
-        const startAutoSlide = () => {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(() => {
-                prodIndex++;
-                updateSlider();
-            }, 3500);
-        };
-
-        const resetAutoSlide = () => {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        };
-
-        if (prodNextBtn) {
-            prodNextBtn.addEventListener('click', () => {
-                prodIndex++;
-                updateSlider();
-                resetAutoSlide();
-            });
-        }
-
-        if (prodPrevBtn) {
-            prodPrevBtn.addEventListener('click', () => {
-                prodIndex--;
-                updateSlider();
-                resetAutoSlide();
-            });
-        }
-
-        // Pause on hover
-        prodContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-        prodContainer.addEventListener('mouseleave', startAutoSlide);
-
-        // Initial
-        updateSlider();
-        startAutoSlide();
-        window.addEventListener('resize', updateSlider);
+        });
     }
+
+    // EXPO SLIDER (Swiper.js)
+    if (document.querySelector('.products-swiper')) {
+        new Swiper('.products-swiper', {
+            speed: 1000,
+            parallax: true,
+            loop: true,
+            grabCursor: true,
+            centeredSlides: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.expo-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.expo-next',
+                prevEl: '.expo-prev',
+            }
+        });
+    }
+
+    // TECHNOLOGIES SLIDER LOGIC
+    const techTrack = document.querySelector('.tech-track');
+    const techWrapper = document.querySelector('.tech-track-wrapper');
+    const techNextBtn = document.querySelector('.tech-next');
+    const techPrevBtn = document.querySelector('.tech-prev');
+    const techCards = document.querySelectorAll('.tech-card');
+
+    if (techTrack && techCards.length > 0) {
+        let techIndex = 0;
+
+        const updateTechSlider = () => {
+            const cardWidth = techCards[0].offsetWidth;
+            const gap = 30;
+            const stride = cardWidth + gap;
+
+            const visibleWidth = techWrapper.offsetWidth;
+            const visibleCards = Math.round(visibleWidth / stride) || 1;
+            const maxIndex = techCards.length - visibleCards;
+
+            if (techIndex > maxIndex) techIndex = 0;
+            if (techIndex < 0) techIndex = maxIndex;
+
+            const translateX = -(techIndex * stride);
+            techTrack.style.transform = `translateX(${translateX}px)`;
+        };
+
+        if (techNextBtn) {
+            techNextBtn.addEventListener('click', () => {
+                techIndex++;
+                updateTechSlider();
+            });
+        }
+
+        if (techPrevBtn) {
+            techPrevBtn.addEventListener('click', () => {
+                techIndex--;
+                updateTechSlider();
+            });
+        }
+
+        // Auto slide
+        let techAutoSlide = setInterval(() => {
+            techIndex++;
+            updateTechSlider();
+        }, 3000);
+
+        techWrapper.addEventListener('mouseenter', () => clearInterval(techAutoSlide));
+        techWrapper.addEventListener('mouseleave', () => {
+            techAutoSlide = setInterval(() => {
+                techIndex++;
+                updateTechSlider();
+            }, 3000);
+        });
+
+        window.addEventListener('resize', updateTechSlider);
+        updateTechSlider();
+    }
+
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();

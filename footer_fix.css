@@ -1,0 +1,130 @@
+/* Global Footer Fixes */
+footer {
+    background: #000 !important;
+    padding: 100px 0 40px !important;
+    color: white !important;
+}
+
+.footer-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 50px !important;
+    flex-wrap: wrap !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-col {
+    flex: 1 !important;
+    min-width: 250px !important;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: white !important;
+    margin-bottom: 25px !important;
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.footer-col ul li a:hover {
+    color: #00D2FF !important;
+    padding-left: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.4s ease;
+}
+
+.social-links a:hover {
+    background: linear-gradient(90deg, #00D2FF 0%, #FF3A85 100%);
+    transform: translateY(-5px);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    color: white;
+    outline: none;
+}
+
+.newsletter-form button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00D2FF 0%, #FF3A85 100%);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    margin-top: 80px !important;
+    padding: 30px 20px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.legal-links {
+    display: flex;
+    gap: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .legal-links {
+        justify-content: center;
+    }
+}
